@@ -74,7 +74,7 @@
 .img1 {
   width: 100%;
 }
-.pad-form {
+.pad-form1 {
   width: 80%;
   height: 100%;
   display: flex;
@@ -100,8 +100,8 @@
 }
 
 .social-icon {
-  height: 46px;
-  width: 46px;
+  height: 30px;
+  width: 30px;
   display: flex;
   justify-content: center;
   align-items: center;

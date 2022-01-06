@@ -1,30 +1,30 @@
-import React, { useState, useContext, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import AuthContext from '../../context/auth/AuthContext';
-import regist from '../img/register.svg';
-import './Reg.css';
+import React, { useState, useContext, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import AuthContext from "../../context/auth/AuthContext";
+import regist from "../img/register.svg";
+import "./Reg.css";
 function RegLog(props) {
   const authContext = useContext(AuthContext);
   const { register, isAuthenticated, store } = authContext;
 
   useEffect(() => {
     if (isAuthenticated) {
-      props.history.push('/mainapp');
+      props.history.push("/mainapp");
     }
   }, [isAuthenticated, props.history]);
 
   const [user, setUser] = useState({
-    username: '',
-    email: '',
-    password: '',
-    password2: '',
-    speciality: '',
-    bio: '',
-    status: 'learner',
-    location: '',
-    tel: '',
+    username: "",
+    email: "",
+    password: "",
+    password2: "",
+    speciality: "",
+    bio: "",
+    status: "learner",
+    location: "",
+    tel: "",
   });
-  const [gender, setGender] = useState('male', 'female');
+  const [gender, setGender] = useState("male", "female");
   function handleChange(e) {
     setGender(e.target.value);
   }
@@ -56,21 +56,21 @@ function RegLog(props) {
       tel,
     });
   };
-const [disabled, setDisabled] =useState(false);
-const inputRef1 = useRef(null)
-const tagRef = useRef(null)
-const toggleEnable = (x) => {
-  if (x == 0){
-    setDisabled(true)
-    
-    inputRef1.current.style.display = 'none'
-  }
-  else{
-    setDisabled(false)
-    inputRef1.current.style.display = 'block'
-    
-  } 
-}
+  const [disabled, setDisabled] = useState(false);
+  const inputRef1 = useRef(null);
+  const tagRef = useRef(null);
+  const toggleEnable = (x) => {
+    if (x == 0) {
+      setDisabled(true);
+
+      inputRef1.current.style.display = "none";
+      tagRef.current.style.display = "none";
+    } else {
+      setDisabled(false);
+      inputRef1.current.style.display = "block";
+      tagRef.current.style.display = "block";
+    }
+  };
 
   useEffect(() => {}, []);
   return (
@@ -156,61 +156,50 @@ const toggleEnable = (x) => {
                       class="form-control bg-white border-left-0 border-md"
                     />
                   </div>
-                  <div class="input-group col-lg-12 mb-4">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text bg-white px-4 border-md border-right-0">
-                        <i class="fa fa-phone-square text-muted"></i>
-                      </span>
-                    </div>
-                    <input
-                      id="tel"
-                      type="tel"
-                      name="tel"
-                      value={tel}
-                      placeholder="Phone Number"
-                      onChange={onChange}
-                      class="form-control bg-white border-md border-left-0 pl-3"
-                    />
-                  </div>
-                  <div class="input-group col-lg-6 mb-4">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text bg-white px-4 border-md border-right-0">
-                        <i class="fab fa-black-tie" ref={tagRef}></i>
-                      </span>
-                    </div>
-                    {/* <input id="speciality" ref={inputRef1} type="text" name="speciality" value={speciality}  
-                     onChange={onChange} disabled={disabled} 
-                     placeholder="Speciality" onChange={(e)=>toggleEnable(e)} 
-                     class="form-control bg-white border-left-0 border-md"/> */}
-                    <input
-                      id="name"
-                      type="text"
-                      name="speciality"
-                      placeholder="Speciality"
-                      value={speciality}
-                      ref={inputRef1}
-                      onChange={onChange}
-                      className="form-control bg-white border-left-0 border-md"
-                    />
-                  </div>
-                  <div className="disposal">
-                    <div class="input-group col-lg-4 mb-4 ">
+                  <div
+                    className="disposal"
+                    style={{ display: "flex", gap: "6px" }}
+                  >
+                    <div class="input-group col-lg-6 mb-4 ">
                       <div class="input-group-prepend">
                         <span class="input-group-text bg-white px-4 border-md border-right-0">
-                          <i class="fas fa-mars"></i>
+                          <i class="fa fa-phone-square text-muted"></i>
                         </span>
                       </div>
-                      <select
-                        id="gender"
-                        name="gender"
-                        value={gender}
-                        onChange={handleChange}
-                        class="form-control custom-select bg-white border-left-0 border-md"
-                      >
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                      </select>
+                      <input
+                        id="tel"
+                        type="tel"
+                        name="tel"
+                        value={tel}
+                        placeholder="Phone Number"
+                        onChange={onChange}
+                        class="form-control bg-white border-md border-left-0 pl-3"
+                      />
                     </div>
+                    <div class="input-group col-lg-6 mb-4 ">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text bg-white px-4 border-md border-right-0">
+                          <i class="fab fa-black-tie" ref={tagRef}></i>
+                        </span>
+                      </div>
+
+                      <input
+                        id="name"
+                        type="text"
+                        name="speciality"
+                        placeholder="Speciality"
+                        value={speciality}
+                        ref={inputRef1}
+                        onChange={onChange}
+                        className="form-control bg-white border-left-0 border-md"
+                      />
+                    </div>
+                  </div>
+
+                  <div
+                    className="line-1"
+                    style={{ display: "flex", gap: "6px" }}
+                  >
                     <div class="input-group col-lg-6 mb-4">
                       <div class="input-group-prepend">
                         <span class="input-group-text bg-white px-4 border-md border-right-0">
@@ -227,39 +216,62 @@ const toggleEnable = (x) => {
                         class="form-control bg-white border-left-0 border-md"
                       />
                     </div>
-                  </div>
-                  <div class="input-group col-lg-6 mb-4">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text bg-white px-4 border-md border-right-0">
-                        <i class="fa fa-lock text-muted"></i>
-                      </span>
+                    <div class="input-group col-lg-6 mb-4 ">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text bg-white px-4 border-md border-right-0">
+                          <i class="fas fa-mars"></i>
+                        </span>
+                      </div>
+                      <select
+                        id="gender"
+                        name="gender"
+                        value={gender}
+                        onChange={handleChange}
+                        class="form-control custom-select bg-white border-left-0 border-md"
+                      >
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                      </select>
                     </div>
-                    <input
-                      id="password"
-                      type="password"
-                      name="password"
-                      placeholder="Password"
-                      value={password}
-                      onChange={onChange}
-                      class="form-control bg-white border-left-0 border-md"
-                    />
                   </div>
-                  <div class="input-group col-lg-6 mb-4">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text bg-white px-4 border-md border-right-0">
-                        <i class="fa fa-lock text-muted"></i>
-                      </span>
+                  <div
+                    className="line-2"
+                    style={{ display: "flex", gap: "6px" }}
+                  >
+                    <div class="input-group col-lg-6 mb-4">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text bg-white px-4 border-md border-right-0">
+                          <i class="fa fa-lock text-muted"></i>
+                        </span>
+                      </div>
+                      <input
+                        id="password"
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={onChange}
+                        class="form-control bg-white border-left-0 border-md"
+                      />
                     </div>
-                    <input
-                      id="password2"
-                      type="password"
-                      name="password2"
-                      value={password2}
-                      onChange={onChange}
-                      placeholder="Confirm Password"
-                      class="form-control bg-white border-left-0 border-md"
-                    />
+                    <div class="input-group col-lg-6 mb-4">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text bg-white px-4 border-md border-right-0">
+                          <i class="fa fa-lock text-muted"></i>
+                        </span>
+                      </div>
+                      <input
+                        id="password2"
+                        type="password"
+                        name="password2"
+                        value={password2}
+                        onChange={onChange}
+                        placeholder="Confirm Password"
+                        class="form-control bg-white border-left-0 border-md"
+                      />
+                    </div>
                   </div>
+
                   <div class="input-group col-lg-3 mb-4">
                     <div class="input-group-prepend"></div>
                     <textarea

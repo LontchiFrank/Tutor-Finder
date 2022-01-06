@@ -19,7 +19,7 @@
 }
 .tablet {
   width: 75%;
-  height: 80vh;
+  height: 90vh;
   display: flex;
   flex-direction: row;
   border: none;
@@ -78,7 +78,7 @@
   height: 100%;
 }
 .pad-form {
-  width: 80%;
+  width: 90%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -87,7 +87,7 @@
 }
 .holdform {
   width: 100%;
-  height: 500px;
+  height: 450px;
   padding-bottom: 7em !important;
 }
 .disposal {
@@ -108,8 +108,8 @@
 }
 
 .social-icon {
-  height: 46px;
-  width: 46px;
+  height: 30px;
+  width: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
